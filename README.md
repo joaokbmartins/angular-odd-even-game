@@ -1,4 +1,4 @@
-# Odd or Even - Angular Game
+# Odd or Even Game - Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12.
 
