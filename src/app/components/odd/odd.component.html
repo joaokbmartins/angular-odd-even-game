@@ -1,1 +1,5 @@
-<h3>Odd Component</h3>
+<div class="alert-success">
+  <div [class]="getGuess() == 'Odd' ? 'alert-success': 'alert-danger'">
+    Odd: {{ getNumber() }} (Guessed: {{ getGuess() }})
+  </div>
+</div>

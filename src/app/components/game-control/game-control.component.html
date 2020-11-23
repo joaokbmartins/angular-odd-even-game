@@ -1,4 +1,31 @@
-<h3>GameControl Component</h3>
+<div class="panel panel-primary text-center">
+  <div class="panel panel-heading">
+    Are you lucky today???
+  </div>
+  <div class="panel-body">
+    <p>
+      <button
+        [class]="getGuess() == 'Odd' ? 'btn btn-success' : 'btn btn-default'"
+        (click)="setGuess('Odd')">Odd
+      </button>
+      &nbsp;
+      <button
+        [class]="getGuess() == 'Even' ? 'btn btn-success' : 'btn btn-default'"
+        (click)="setGuess('Even')">Even
+      </button>
+    </p> 
+  </div>
+</div>
 
-<app-odd></app-odd>
-<app-even></app-even>
+<button
+  class="btn btn-primary form-control"
+  (click)="switchAction()"
+  [disabled]="getGuess() == null">{{ getAction().toUpperCase() }}
+</button>
+
+<hr>
+
+<p class='text-center'>
+  {{ this.getCounter() }}
+</p>
+

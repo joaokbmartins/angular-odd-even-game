@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-odd',
@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
 })
 
 export class OddComponent {
+
+  @Input() private guess: string = null;
+  @Input() private number: number = 0;
+
+  public getNumber(): number {
+    return this.number;
+  }
+
+  public getGuess(): string {
+    return this.guess;
+  }
   
 }

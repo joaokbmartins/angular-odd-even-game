@@ -1,3 +1,43 @@
-<h3>App Component</h3>
+<div class="container text-center">
+  <div class="col col-md-6">
+    <h3><b>ODD or EVEN?</b></h3>
 
-<app-game-control></app-game-control>
+    <app-game-control
+      (gameStopped)="gameStopped($event)"
+    ></app-game-control>
+    
+    <hr>
+    
+    <div *ngIf="getRoundResult() != null">
+      <p *ngIf="getRoundResult().type == getRoundResult().guess ; else wrongAnswer" class='alert alert-success'>
+        <span>You guessed {{ getRoundResult().guess.toUpperCase() }}! You did it! </span>
+      </p>
+      <ng-template #wrongAnswer>
+        <p class="alert alert-danger">
+          <span>You guessed {{ getRoundResult().guess.toUpperCase() }}... Maybe next round... </span>
+        </p>
+      </ng-template>
+    </div>
+        
+    <hr>
+    
+    <h4>Results</h4>
+
+    <p *ngFor="let result of getResults()">
+      <app-odd 
+        *ngIf="result.type == 'Odd'; else renderEven" 
+        [guess]="result.guess" 
+        [number]="result.number"
+      >
+      </app-odd>
+
+      <ng-template #renderEven>
+        <app-even>
+          <div [class]="result.type == result.guess ? 'alert-success': 'alert-danger'">
+            Even: {{ result.number }} (Guessed: {{ result.guess }})
+          </div>
+        </app-even>
+      </ng-template>
+    </p>
+  </div>
+</div>
