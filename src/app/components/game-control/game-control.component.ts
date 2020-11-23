@@ -56,7 +56,7 @@ export class GameControlComponent {
   }
 
   private checkResult(): void {
-    if (this.counter % 2 == 0) {
+    if (this.counter % 2 != 0) {
       this.setResult('Odd');
     } else {
       this.setResult('Even');
